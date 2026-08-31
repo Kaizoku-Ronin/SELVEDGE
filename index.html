@@ -2969,8 +2969,8 @@ function rowToInpJewelry(r){
   const s=k=>String(rowGet(r,k)==null?"":rowGet(r,k)).toLowerCase().trim();
   const pick=(v,map,dflt)=>{ for(const k in map){ if(v&&map[k].some(p=>v.indexOf(p)>=0)) return k; } return dflt; };
   return { ref:(rowGet(r,"ref")||"").toString(),
-    article:pick(s("jewelry_article"),{cufflinks:["cuff"],chaincont:["contin"],clasps:["clasp"],necklace:["neck"],ring:["ring"],earrings:["ear"],bracelet:["brace","bang"],brooch:["brooch","pin"],religious:["relig","rosar"],toy:["toy"],loose:["loose"],otherjewelry:["other"]},"otherjewelry"),
-    comp:pick(s("composition"),{platinum:["plat"],imit_plastics:["plastic"],imit_base:["plated","bare","imit"],clad:["clad"],silver:["silver"],gold:["gold"],pearls_nat:["natural pearl"],pearls_cult:["cultured"],stones:["stone"],otherpm:["precious"],imit_other:["other imit"]},"imit_base"),
+    article:pick(s("jewelry_article"),{cufflinks:["cuff"],chaincont:["contin"],clasps:["clasp"],necklace:["neck"],earrings:["ear"],ring:["ring"],bracelet:["brace","bang"],brooch:["brooch","pin"],religious:["relig","rosar"],toy:["toy"],loose:["loose"],otherjewelry:["other"]},"otherjewelry"),
+    comp:pick(s("composition"),{clad:["clad"],silver:["silver"],gold:["gold"],platinum:["platinum"],pearls_nat:["natural pearl"],pearls_cult:["cultured"],stones:["stone"],otherpm:["precious"],imit_plastics:["plastic"],imit_other:["other imit"],imit_base:["base metal","plated","bare","imit"]},"imit_base"),
     chain:pick(s("chain_type"),{rope:["rope"],mixedlink:["mixed"],other:["other"]},"na"),
     val18:yn(rowGet(r,"over_18_doz_silver")), val40:yn(rowGet(r,"over_40_pc_stones")),
     val20:(v=>v==="unknown"?"yes":v)(yn(rowGet(r,"over_20c_doz_imit"))),
